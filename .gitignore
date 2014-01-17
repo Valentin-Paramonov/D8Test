@@ -1,6 +1,10 @@
 *.class
 
-# Package Files #
+# Java Package Files #
 *.jar
 *.war
 *.ear
+
+# Idea Project Files
+*.iml
+.idea
