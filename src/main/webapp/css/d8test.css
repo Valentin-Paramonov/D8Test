@@ -1,0 +1,80 @@
+body {
+    background-color: #cccccc;
+}
+
+.errorBlock {
+    color: black;
+    background-color: #bbaaaa;
+    border: 3px solid #aa0000;
+    border-radius: 5px;
+    margin 20px auto;
+    padding: 5px;
+}
+
+.error {
+    color: #aa0000;
+}
+
+#addUserForm, #updateUserForm {
+    width: 400px;
+    margin: 50px 0 0 -200px;
+    background-color: #bbbbbb;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    left: 50%;
+}
+
+#welcome {
+    width: 600px;
+    text-align: center;
+    margin: 50px auto;
+}
+
+#userListTable {
+    background-color: #bbbbbb;
+    border-radius: 5px;
+    width: 400px;
+    margin: 50px auto;
+}
+
+#userListTable td {
+    padding: 0 5px;
+    background-color: #aaaaaa;
+    border-radius: 5px;
+}
+
+#userListTable th {
+    padding: 0 5px;
+    background-color: #999999;
+    border-radius: 5px;
+}
+
+input[type=submit] {
+    background-color: #dddddd;
+    padding: 2px 4px;
+    font: 13px sans-serif;
+    text-decoration: none;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    border-color: #aaa #444 #444 #aaa;
+    color: black;
+}
+
+#addUserButton, #addUserButton2, #updateUserButton {
+    width: 80px;
+    height: 40px;
+    font: 15px sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    float: right;
+}
+
+#addUserButton2 {
+    width: 100px;
+}
+
+#addUserTable, #updateUserTable {
+    width: 90%;
+    margin: 0 auto;
+}

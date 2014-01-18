@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd
+            http://www.springframework.org/schema/util
+            http://www.springframework.org/schema/util/spring-util-3.0.xsd
+            http://www.springframework.org/schema/mvc
+            http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+    <mvc:annotation-driven/>
+
+    <context:component-scan base-package="paramonov.valentine.d8test.controller"/>
+
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix">
+            <value>/views/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.context.support.ResourceBundleMessageSource"
+          id="messageSource">
+        <property name="basename" value="messages"/>
+    </bean>
+
+    <bean id="userStorageService" class="paramonov.valentine.d8test.service.UserStorageService">
+        <property name="users">
+            <util:map map-class="java.util.HashMap">
+                <entry key="1">
+                    <bean class="paramonov.valentine.d8test.bean.User">
+                        <property name="id" value="1"/>
+                        <property name="name" value="Rocco"/>
+                        <property name="age" value="23"/>
+                        <property name="active" value="true"/>
+                        <property name="books">
+                            <util:list list-class="java.util.LinkedList">
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="1"/>
+                                    <property name="title" value="The Red Book"/>
+                                </bean>
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="2"/>
+                                    <property name="title" value="Clean Code"/>
+                                </bean>
+                            </util:list>
+                        </property>
+                    </bean>
+                </entry>
+                <entry key="2">
+                    <bean class="paramonov.valentine.d8test.bean.User">
+                        <property name="id" value="2"/>
+                        <property name="name" value="Derrick"/>
+                        <property name="age" value="33"/>
+                        <property name="active" value="true"/>
+                        <property name="books">
+                            <util:list list-class="java.util.LinkedList">
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="1"/>
+                                    <property name="title" value="Patterns"/>
+                                </bean>
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="2"/>
+                                    <property name="title" value="Spring MVC For Starters"/>
+                                </bean>
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="3"/>
+                                    <property name="title" value="Bulk Operations"/>
+                                </bean>
+                            </util:list>
+                        </property>
+                    </bean>
+                </entry>
+                <entry key="3">
+                    <bean class="paramonov.valentine.d8test.bean.User">
+                        <property name="id" value="3"/>
+                        <property name="name" value="Shawn"/>
+                        <property name="age" value="48"/>
+                        <property name="active" value="true"/>
+                        <property name="books">
+                            <util:list list-class="java.util.LinkedList">
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="1"/>
+                                    <property name="title" value="Beginning OpenGL"/>
+                                </bean>
+                            </util:list>
+                        </property>
+                    </bean>
+                </entry>
+                <entry key="4">
+                    <bean class="paramonov.valentine.d8test.bean.User">
+                        <property name="id" value="4"/>
+                        <property name="name" value="Garrett"/>
+                        <property name="age" value="12"/>
+                        <property name="active" value="true"/>
+                        <property name="books">
+                            <util:list list-class="java.util.LinkedList">
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="1"/>
+                                    <property name="title" value="QT Framework"/>
+                                </bean>
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="2"/>
+                                    <property name="title" value="JavaScript Bible Gold Edition"/>
+                                </bean>
+                            </util:list>
+                        </property>
+                    </bean>
+                </entry>
+                <entry key="5">
+                    <bean class="paramonov.valentine.d8test.bean.User">
+                        <property name="id" value="5"/>
+                        <property name="name" value="Kevin"/>
+                        <property name="age" value="66"/>
+                        <property name="active" value="true"/>
+                        <property name="books">
+                            <util:list list-class="java.util.LinkedList">
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="1"/>
+                                    <property name="title" value="Eclipse RCP"/>
+                                </bean>
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="2"/>
+                                    <property name="title" value="Assemblers and Loaders"/>
+                                </bean>
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="3"/>
+                                    <property name="title" value="OpenGL Superbible"/>
+                                </bean>
+                            </util:list>
+                        </property>
+                    </bean>
+                </entry>
+                <entry key="6">
+                    <bean class="paramonov.valentine.d8test.bean.User">
+                        <property name="id" value="6"/>
+                        <property name="name" value="Bryan"/>
+                        <property name="age" value="89"/>
+                        <property name="active" value="true"/>
+                        <property name="books">
+                            <util:list list-class="java.util.LinkedList">
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="1"/>
+                                    <property name="title" value="Gradle User Guide"/>
+                                </bean>
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="2"/>
+                                    <property name="title" value="Pro Git"/>
+                                </bean>
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="3"/>
+                                    <property name="title" value="Spring By Example"/>
+                                </bean>
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="4"/>
+                                    <property name="title" value="Linux System Programming"/>
+                                </bean>
+                            </util:list>
+                        </property>
+                    </bean>
+                </entry>
+                <entry key="7">
+                    <bean class="paramonov.valentine.d8test.bean.User">
+                        <property name="id" value="7"/>
+                        <property name="name" value="Eric"/>
+                        <property name="age" value="33"/>
+                        <property name="active" value="true"/>
+                        <property name="books">
+                            <util:list list-class="java.util.LinkedList">
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="1"/>
+                                    <property name="title" value="Linux Kernel Development"/>
+                                </bean>
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="2"/>
+                                    <property name="title" value="RTLinux HowTo"/>
+                                </bean>
+                            </util:list>
+                        </property>
+                    </bean>
+                </entry>
+                <entry key="8">
+                    <bean class="paramonov.valentine.d8test.bean.User">
+                        <property name="id" value="8"/>
+                        <property name="name" value="Frank"/>
+                        <property name="age" value="67"/>
+                        <property name="active" value="true"/>
+                        <property name="books">
+                            <util:list list-class="java.util.LinkedList">
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="1"/>
+                                    <property name="title" value="Game Development"/>
+                                </bean>
+                            </util:list>
+                        </property>
+                    </bean>
+                </entry>
+                <entry key="9">
+                    <bean class="paramonov.valentine.d8test.bean.User">
+                        <property name="id" value="9"/>
+                        <property name="name" value="Mathew"/>
+                        <property name="age" value="55"/>
+                        <property name="active" value="true"/>
+                        <property name="books">
+                            <util:list list-class="java.util.LinkedList">
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="1"/>
+                                    <property name="title" value="System Architecture"/>
+                                </bean>
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="2"/>
+                                    <property name="title" value="I'll Sleep When I'm Dead"/>
+                                </bean>
+                            </util:list>
+                        </property>
+                    </bean>
+                </entry>
+                <entry key="10">
+                    <bean class="paramonov.valentine.d8test.bean.User">
+                        <property name="id" value="10"/>
+                        <property name="name" value="Jason"/>
+                        <property name="age" value="76"/>
+                        <property name="active" value="true"/>
+                        <property name="books">
+                            <util:list list-class="java.util.LinkedList">
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="1"/>
+                                    <property name="title" value="Software Development"/>
+                                </bean>
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="2"/>
+                                    <property name="title" value="Internetworking With TCP/IP"/>
+                                </bean>
+                                <bean class="paramonov.valentine.d8test.bean.Book">
+                                    <property name="id" value="3"/>
+                                    <property name="title" value="Client-Server Architecture"/>
+                                </bean>
+                            </util:list>
+                        </property>
+                    </bean>
+                </entry>
+            </util:map>
+        </property>
+    </bean>
+</beans>
+
