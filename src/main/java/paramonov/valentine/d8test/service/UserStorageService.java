@@ -14,6 +14,7 @@ public class UserStorageService implements StorageService<User> {
 
     public void setUsers(Map<Long, User> users) {
         this.users = users;
+        id = users.size();
     }
 
     @Override

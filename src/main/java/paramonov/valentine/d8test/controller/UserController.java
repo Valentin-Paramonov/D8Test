@@ -143,6 +143,7 @@ public class UserController {
 
         if(!result.hasErrors()) {
             books.add(book);
+            book = new Book();
         }
 
         modelAndView.addObject("user", user);
