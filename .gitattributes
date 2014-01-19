@@ -1,0 +1,5 @@
+src/test/ export-ignore
+pom.xml export-ignore
+.gitignore export-ignore
+.gitattributes export-ignore
+

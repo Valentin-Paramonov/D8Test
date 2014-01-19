@@ -3,14 +3,17 @@ package paramonov.valentine.d8test.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import paramonov.valentine.d8test.bean.Book;
-import paramonov.valentine.d8test.bean.User;
+import paramonov.valentine.d8test.beans.Book;
+import paramonov.valentine.d8test.beans.User;
 import paramonov.valentine.d8test.service.StorageService;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -72,27 +75,80 @@ public class UserController {
 
         User editUser = userStorageService.get(user.getId());
         modelAndView.addObject("user", editUser);
-        modelAndView.addObject("newbook", new Book());
+        modelAndView.addObject("booksSize", editUser.getBooks().size());
+        modelAndView.addObject("newBook", new Book());
 
         return modelAndView;
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public ModelAndView updateUser(@Valid User user, BindingResult result, @Valid Book book, BindingResult bookResult) {
+    public ModelAndView updateUser(@Valid User user, BindingResult result) {
+        ModelAndView modelAndView;
+
+        Book book = new Book();
+        int bookSize = user.getBooks().size();
+
         if(result.hasErrors()) {
-            return new ModelAndView("details-user");
-        }
+            modelAndView =  new ModelAndView("details-user");
 
-        if(!bookResult.hasErrors()) {
-            user.getBooks().add(book);
-        }
+            modelAndView.addObject("newBook", book);
+            modelAndView.addObject("booksSize", bookSize);
 
-        if(userStorageService.update(user)) {
-            ModelAndView modelAndView = new ModelAndView("list-users");
-            modelAndView.addObject("users", userStorageService.getValues());
             return modelAndView;
         }
 
-        return new ModelAndView("details-user");
+        if(userStorageService.update(user)) {
+            modelAndView = new ModelAndView("list-users");
+
+            modelAndView.addObject("users", userStorageService.getValues());
+            modelAndView.addObject("newBook", new Book());
+
+            return modelAndView;
+        }
+
+        modelAndView =  new ModelAndView("details-user");
+
+        modelAndView.addObject("newBook", book);
+        modelAndView.addObject("booksSize", bookSize);
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value="/{userID}/book/delete/{bookId}", method=RequestMethod.POST)
+    public ModelAndView deleteBook(@PathVariable("userID") long userId, @PathVariable("bookId") int bookId) {
+        ModelAndView modelAndView = new ModelAndView("details-user");
+
+        final User user = userStorageService.get(userId);
+        final List<Book> books = user.getBooks();
+
+        try {
+            books.remove(bookId);
+        } catch(IndexOutOfBoundsException ioobe) {
+            // Can you keep a secret?
+        }
+
+        modelAndView.addObject("user", user);
+        modelAndView.addObject("booksSize", books.size());
+        modelAndView.addObject("newBook", new Book());
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value="/{userID}/book/add", method=RequestMethod.POST)
+    public ModelAndView addBook(@PathVariable("userID") long userId, @Valid @ModelAttribute("newBook") Book book, BindingResult result) {
+        ModelAndView modelAndView = new ModelAndView("details-user");
+
+        final User user = userStorageService.get(userId);
+        final List<Book> books = user.getBooks();
+
+        if(!result.hasErrors()) {
+            books.add(book);
+        }
+
+        modelAndView.addObject("user", user);
+        modelAndView.addObject("booksSize", books.size());
+        modelAndView.addObject("newBook", book);
+
+        return modelAndView;
     }
 }

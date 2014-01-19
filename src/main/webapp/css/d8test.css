@@ -15,14 +15,12 @@ body {
     color: #aa0000;
 }
 
-#addUserForm, #updateUserForm {
+#addUserTable, #updateUserForm {
     width: 400px;
-    margin: 50px 0 0 -200px;
+    margin: 50px auto;
     background-color: #bbbbbb;
     border-radius: 5px;
     padding: 10px;
-    position: absolute;
-    left: 50%;
 }
 
 #welcome {
@@ -44,6 +42,14 @@ body {
     border-radius: 5px;
 }
 
+#userListTable td.buttons {
+    width: 100px;
+}
+
+#userListTable td.books {
+    background-color: #b0b0b0;
+}
+
 #userListTable th {
     padding: 0 5px;
     background-color: #999999;
@@ -61,7 +67,7 @@ input[type=submit] {
     color: black;
 }
 
-#addUserButton, #addUserButton2, #updateUserButton {
+#addUserButton, #addUserButton2, #updateUserButton, #cancelButton {
     width: 80px;
     height: 40px;
     font: 15px sans-serif;
@@ -74,7 +80,47 @@ input[type=submit] {
     width: 100px;
 }
 
-#addUserTable, #updateUserTable {
+#addUserTable2, #updateUserTable {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#userBooks {
+    width: 90%;
+    margin: 10px auto;
+}
+
+.bookTitle {
+    width: 80%;
+}
+
+.bookEntry {
+    width: 100%;
+}
+
+#updateUserTable {
+    width: 100%;
+}
+
+#addBookForm {
+    width: 90%;
+    margin: 10px auto;
+}
+
+#addBookTable {
+    width: 100%;
+}
+
+#addBookTable td.title {
+    width: 80%;
+}
+
+#addBookTable input[type=text] {
+    width: 95%;
+    margin: 0 auto;
+}
+
+#userDetailsForm {
     width: 90%;
     margin: 0 auto;
 }

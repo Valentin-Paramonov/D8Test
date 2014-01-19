@@ -1,9 +1,8 @@
 package paramonov.valentine.d8test.service;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
-import paramonov.valentine.d8test.bean.User;
+import paramonov.valentine.d8test.beans.User;
 
 import java.util.HashMap;
 import java.util.List;

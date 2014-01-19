@@ -1,4 +1,4 @@
-package paramonov.valentine.d8test.bean;
+package paramonov.valentine.d8test.beans;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;

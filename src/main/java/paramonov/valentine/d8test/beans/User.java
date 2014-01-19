@@ -1,4 +1,4 @@
-package paramonov.valentine.d8test.bean;
+package paramonov.valentine.d8test.beans;
 
 import org.hibernate.validator.constraints.Range;
 
@@ -6,6 +6,7 @@ import javax.validation.GroupSequence;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.List;
 
 @GroupSequence({User.class, NotNull.class, Size.class, Pattern.class, Range.class})
@@ -23,7 +24,7 @@ public class User {
 
     private boolean active;
 
-    private List<Book> books;
+    private List<Book> books = new ArrayList<Book>(0);
 
     public long getId() {
         return id;

@@ -1,14 +1,12 @@
 package paramonov.valentine.d8test.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import paramonov.valentine.d8test.bean.Book;
-import paramonov.valentine.d8test.bean.User;
+import paramonov.valentine.d8test.beans.User;
 
 import java.util.*;
 
 public class UserStorageService implements StorageService<User> {
     private long id = 0;
-    private Map<Long, User> users;
+    private Map<Long, User> users = new HashMap<Long, User>(0);
 
     public Map<Long, User> getUsers() {
         return users;
